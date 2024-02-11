@@ -3,20 +3,19 @@ package com.shopping.cart;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
+@ComponentScan(basePackages = "com.shopping.cart")
 public class ShoppingCartApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShoppingCartApplication.class, args);
 	}
 	
-	 @Bean
+	    @Bean
 	    public CommandLineRunner initData(ShoppingCartRepository shoppingCartRepository) {
 	        return args -> {
 	            // Inserting sample data

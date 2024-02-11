@@ -7,9 +7,14 @@ import java.util.List;
 @Service
 public class ShoppingCartService {
 
-	 @Autowired
-	    private ShoppingCartRepository shoppingCartRepository;
-
+	    
+	    private final ShoppingCartRepository shoppingCartRepository;
+	    
+	    @Autowired
+	    public ShoppingCartService(ShoppingCartRepository shoppingCartRepository) {
+	        this.shoppingCartRepository = shoppingCartRepository;
+	    }
+	 	
 	    public List<Item> getItems() {
 	        return shoppingCartRepository.findAll();
 	    }
